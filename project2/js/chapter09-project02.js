@@ -17,6 +17,7 @@ window.addEventListener('load', function(){// creating event handler after loadi
     featuredImg.addEventListener("mouseover", function(event){
     var figuretitle = document.querySelector("#featured > figcaption");
     figuretitle.style.opacity = "75%";
+    figuretitle.style.transition= 'opacity 1s';//adding animation
     })
 
     featuredImg.addEventListener("mouseout", function(event){
