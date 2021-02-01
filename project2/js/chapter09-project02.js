@@ -1,17 +1,26 @@
 /* add code here */
 window.addEventListener('load', function(){// creating event handler after loading window
-    var imageClick = document.querySelectorAll('#thumbnails img'); 
-    var i = 0;
-    while (i < imageClick.length) {
-        imageClick[i].addEventListener("click", function () {
-            //changing image size on clicking and showing their figure caprtion.
-            var splited = event.target.src.split("images/small/");
-            document.querySelector("#featured>img").src = "images/medium/" + splited[1];
-            document.querySelector("#featured>img").title = event.target.title;
-            document.querySelector("#featured>img").alt = event.target.alt;
-            var figuretitle = document.querySelector("#featured > figcaption")
-            figuretitle.innerHTML = event.target.title;
-        })
-        i++;
-    }
+    var featuredImg = document.querySelector('#featured img');
+    var imageClick = document.querySelector('#thumbnails'); 
+    imageClick.addEventListener("click", function () {
+        //changing image size on clicking and showing their figure caprtion.
+        var splited = event.target.src.split("images/small/");
+        featuredImg.src = "images/medium/" + splited[1];
+        featuredImg.title = event.target.title;
+        featuredImg.alt = event.target.alt;
+        var figuretitle = document.querySelector("#featured > figcaption")
+        figuretitle.innerHTML = event.target.title;
+    })
+    
+    //adding mouse hover and mouseout events.
+   
+    featuredImg.addEventListener("mouseover", function(event){
+    var figuretitle = document.querySelector("#featured > figcaption");
+    figuretitle.style.opacity = "75%";
+    })
+
+    featuredImg.addEventListener("mouseout", function(event){
+    var figuretitle = document.querySelector("#featured > figcaption");
+    figuretitle.style.opacity = "0%";
+    })
 })
