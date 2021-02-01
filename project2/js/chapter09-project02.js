@@ -4,6 +4,7 @@ window.addEventListener('load', function(){// creating event handler after loadi
     var i = 0;
     while (i < imageClick.length) {
         imageClick[i].addEventListener("click", function () {
+            //changing image size on clicking and showing their figure caprtion.
             var splited = event.target.src.split("images/small/");
             document.querySelector("#featured>img").src = "images/medium/" + splited[1];
             document.querySelector("#featured>img").title = event.target.title;
